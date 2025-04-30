@@ -8,6 +8,7 @@ Realizar agendamento,
 
 Simular reconhecimento facial,
 
+
 Visualizar histórico,
 
 Sair"""
@@ -28,13 +29,22 @@ def opcao_invalida():
     main()
 
 def marcar_consultas():
-     os.system("cls")
-     print("marcar consultas")
-     nova_consulta = input("digite seu nome completo")
-     dia_consulta = input("digite dia que deseja marcar a consulta")
-     if dia_consulta == consultas: print("data indisponivel tente outro horario")
-     else: consultas.append(nova_consulta,dia_consulta)
-     
+    os.system("cls" if os.name == "nt" else "clear")
+    print("=== Marcar Consulta ===")
+    
+    nome = input("Digite seu nome completo: ")
+    dia = input("Digite o dia que deseja marcar a consulta: ")
+
+    for consulta in consultas:
+        if consulta["dia"] == dia:
+            print("Essa data já está ocupada. Tente outro horário.")
+            input("Pressione Enter para voltar ao menu...")
+            return
+
+    consultas.append({"nome": nome, "dia": dia})
+    print("Consulta marcada com sucesso!")
+    input("Pressione Enter para voltar ao menu...")
+
 
 def exibir_opcoes():
     print("1 tirar duvidas via chatbot(no futuro vai ficar o link do nosso chatbot)")
