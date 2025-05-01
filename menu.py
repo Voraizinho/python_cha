@@ -28,6 +28,9 @@ def opcao_invalida():
     input("digite uma tecla para voltar a o menu")
     main()
 
+
+
+
 def marcar_consultas():
     os.system("cls" if os.name == "nt" else "clear")
     print("=== Marcar Consulta ===")
@@ -44,6 +47,9 @@ def marcar_consultas():
     consultas.append({"nome": nome, "dia": dia})
     print("Consulta marcada com sucesso!")
     input("Pressione Enter para voltar ao menu...")
+    main()
+
+
 
 
 def exibir_opcoes():
@@ -60,7 +66,7 @@ def escolher_opcoes():
             if opção_escolhida == 1: print("link do nosso chatbot")
             elif opção_escolhida == 2:marcar_consultas()
             elif opção_escolhida == 3:  print("link do reconhecimento facial")
-            elif opção_escolhida == 4: print("mostrar as consultas marcadas")
+            elif opção_escolhida == 4: print(consultas)
             elif opção_escolhida == 5: finalizar_app()
             else: opcao_invalida()
         except: opcao_invalida()
